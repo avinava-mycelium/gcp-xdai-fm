@@ -1,0 +1,63 @@
+replicaCount: 1
+appName: chainlink-node
+project: avian-direction-235610
+
+deployment:
+  name: chainlink-deployment
+
+container:
+  name: chainlink
+  port: 6688
+  configEnv: node-env
+
+loadbalancer:
+  port: 8068
+
+image:
+  repository: smartcontract/chainlink:1.2.0-nonroot
+  pullPolicy: IfNotPresent
+
+volume:
+  apiMountName: api-volume
+  apiMountPath: /chainlink/.api
+  apiMountSubPath: .api
+  apiSecretName: api-env
+  passwordMountName: password-volume
+  passwordMountPath: /chainlink/.password
+  passwordMountSubPath: .password
+  passwordSecretName: password-env
+
+secrets:
+  extSecretsEnv: external-secrets-env
+  extSecretsApi: external-secrets-api
+  extSecretsApiKey1: .api
+  extSecretsApiKey2: .password
+  extSecretsStoreEnv: external-secret-store-env
+  extSecretsStoreApi: external-secret-store-api
+  extGCPSecretsStoreApi: XDAI_FM_API
+  extGCPSecretsStorePassword: XDAI_FM_PASSWORD
+  gcpsmSecretEnv: gcpsm-secret-env
+  gcpsmSecretApi: gcpsm-secret-api
+  secretAccessCredentials: secret-access-credentials
+
+configMap:
+  fm: 
+    CHAINLINK_TLS_PORT: 0
+    ETH_URL: wss://white-still-dust.xdai.quiknode.pro/76180232310ff8c86bc4eddf5e5a756299a6f699/
+    ROOT: /chainlink
+    SECURE_COOKIES: false
+    MINIMUM_CONTRACT_PAYMENT_LINK_JUELS: 100000000000
+    ALLOW_ORIGINS: '*'
+    ETH_CHAIN_ID: 100
+    ETH_SECONDARY_URLS: https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=100,https://xdai.poanetwork.dev/,https://dai.poa.network/
+    DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS: true
+
+configMapSecrets:
+  DATABASE_URL: DATABASE_URL
+  LINK_CONTRACT_ADDRESS: LINK_CONTRACT_ADDRESS
+  FLAGS_CONTRACT_ADDRESS: FLAGS_CONTRACT_ADDRESS
+
+remoteConfigMapSecrets:
+  DATABASE_URL: XDAI_FM_DATABASE_URL
+  LINK_CONTRACT_ADDRESS: XDAI_FM_LINK_CONTRACT_ADDRESS
+  FLAGS_CONTRACT_ADDRESS: XDAI_FM_FLAGS_CONTRACT_ADDRESS
