@@ -1,12 +1,12 @@
 
-# ETH chainlink k8 setup
+# XDAI FM chainlink k8 setup
 
 This project helps up setting a chainlink XDAI node in a kubernetes cluster
 
 
 ## Documentation
 
-[How to Run A Fullnode on XDAI FM Chain ](https://ethereum.org/en/developers/docs/nodes-and-clients/run-a-node/)
+[How to Run A Fullnode on XDAI FM Chain ](https://www.xdaichain.com/for-developers/install-xdai-client)
 
 ## Helm repo 
 
@@ -64,40 +64,23 @@ To run this project, you will need to add the following secrets to your helm/cha
 
 To run this project, you will need to add the following environment variables to your configMap.yaml file
 
----
-For testnet setup
-
-`ROOT`
-`LOG_LEVEL`
-`ETH_CHAIN_ID`
-`ALLOW_ORIGINS`
-`DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS`
-`LOG_TO_DISK`
-`ETH_URL`
-`DATABASE_URL`
-`DATABASE_TIMEOUT`
 
 ---
 
-For OCR setup
+For FM setup
 
-`ROOT`
-`LOG_LEVEL`
-`ETH_CHAIN_ID`
-`ALLOW_ORIGINS`
-`DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS`
-`LOG_TO_DISK`
-`FEATURE_OFFCHAIN_REPORTING`
-`OCR_TRACE_LOGGING`
-`P2P_LISTEN_PORT`
-`OCR_DATABASE_TIMEOUT`
-`OCR_CONTRACT_TRANSMITTER_TRANSMIT_TIMEOUT`
-`OCR_OBSERVATION_GRACE_PERIOD`
+`CHAINLINK_TLS_PORT`
 `ETH_URL`
-`ETH_SECONDARY_URL`
-`P2P_BOOTSTRAP_PEERS`
+`ROOT`
+`SECURE_COOKIES`
+`MINIMUM_CONTRACT_PAYMENT_LINK_JUELS`
+`ALLOW_ORIGINS`
+`ETH_CHAIN_ID`
+`ETH_SECONDARY_URLS`
+`DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS`
 `DATABASE_URL`
-`DATABASE_TIMEOUT`
+`LINK_CONTRACT_ADDRESS`
+`FLAGS_CONTRACT_ADDRESS`
 
 
 ## Deployment of kubernertes cluster
