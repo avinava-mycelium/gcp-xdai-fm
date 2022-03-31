@@ -1,18 +1,14 @@
 
-# XDAI FM chainlink k8 setup
+# XDAI FM chainlink k8 setup in GCP
 
-This project helps up setting a chainlink XDAI node in a kubernetes cluster
+This project helps up setting a chainlink XDAI node in a kubernetes cluster in Google Cloud Platform
 
 
 ## Documentation
 
 [How to Run A Fullnode on XDAI FM Chain ](https://www.xdaichain.com/for-developers/install-xdai-client)
 
-## Helm repo 
-
-[Add helm repo](helm repo add external-secrets https://charts.external-secrets.io)
-
-[Install the chart] (helm install external-secrets external-secrets/external-secrets)
+[Running Chainlink Nodes on Kubernetes and the Google Cloud Platform](https://medium.com/secure-data-links/running-chainlink-nodes-on-kubernetes-and-the-google-cloud-platform-1fab922b3a1a)
 
 ## Code setup steps
 
@@ -25,7 +21,7 @@ This project helps up setting a chainlink XDAI node in a kubernetes cluster
 
 ## Appendix
 
-We are in the process of pulling in prometheus and grafan setups
+We are in the process of pulling in prometheus and grafana setups via IaC
 
 
 ## Installation
@@ -50,24 +46,23 @@ Install helm ith Homebrew
 ```bash
   brew install helm
 ```
+
+## Helm repo 
+
+[Add helm repo] (helm repo add external-secrets https://charts.external-secrets.io)
+
+[Install the chart] (helm install external-secrets external-secrets/external-secrets)
+
 ## Secrets
 
-To run this project, you will need to add the following secrets to your helm/charts/secrets/ folder
-
-`API_KEY` --> .api (use the user name and password that is needede to login to the chainlink pod)
-
-`PASSWORD_KEY` --> .password
-
+All the sensitive data, like API_KEY, API_PASSWORD, DATABASE_URL, FLAGS_CONTRACT_ADDRESS, LINK_CONTRACT_ADDRESS are stored in GCP's secret manager.
 
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your configMap.yaml file
+To run this project, you will need to add the following environment variables
 
-
----
-
-For FM setup
+## in configmap.yaml file
 
 `CHAINLINK_TLS_PORT`
 `ETH_URL`
@@ -78,10 +73,17 @@ For FM setup
 `ETH_CHAIN_ID`
 `ETH_SECONDARY_URLS`
 `DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS`
+
+## as secrets in secret_env.yaml file
+
 `DATABASE_URL`
 `LINK_CONTRACT_ADDRESS`
 `FLAGS_CONTRACT_ADDRESS`
 
+
+## For passing login credentials (secrets)
+  API
+  PASSWORD
 
 ## Deployment of kubernertes cluster
 

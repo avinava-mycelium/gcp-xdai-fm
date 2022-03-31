@@ -45,11 +45,11 @@ configMap:
     CHAINLINK_TLS_PORT: 0
     ETH_URL: wss://white-still-dust.xdai.quiknode.pro/76180232310ff8c86bc4eddf5e5a756299a6f699/
     ROOT: /chainlink
-    SECURE_COOKIES: false
-    MINIMUM_CONTRACT_PAYMENT_LINK_JUELS: 100000000000
+    SECURE_COOKIES: 'false'
+    MINIMUM_CONTRACT_PAYMENT_LINK_JUELS: '100000000000'
     ALLOW_ORIGINS: '*'
     ETH_CHAIN_ID: 100
-    ETH_SECONDARY_URLS: https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=100,https://xdai.poanetwork.dev/,https://dai.poa.network/
+    ETH_SECONDARY_URLS: https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=100
     DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS: true
 
 configMapSecrets:
