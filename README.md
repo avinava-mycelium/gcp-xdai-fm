@@ -82,8 +82,8 @@ To run this project, you will need to add the following environment variables
 
 
 ## For passing login credentials (secrets)
-  API
-  PASSWORD
+  `API`
+  `PASSWORD`
 
 ## Deployment of kubernertes cluster
 
