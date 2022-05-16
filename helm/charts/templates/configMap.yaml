@@ -9,6 +9,8 @@ data:
   ETH_CHAIN_ID: "{{.Values.configMap.fm.ETH_CHAIN_ID}}"
   ETH_SECONDARY_URLS: "{{.Values.configMap.fm.ETH_SECONDARY_URLS}}"
   DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS: "{{.Values.configMap.fm.DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS}}"
+  LOG_FILE_DIR: "{{.Values.configMap.fm.LOG_FILE_DIR}}"
+  DATABASE_LOCKING_MODE: "{{.Values.configMap.fm.DATABASE_LOCKING_MODE}}"
 
 kind: ConfigMap
 metadata:
